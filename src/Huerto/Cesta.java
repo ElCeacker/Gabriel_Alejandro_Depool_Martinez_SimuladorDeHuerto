@@ -10,12 +10,13 @@ public class Cesta extends Thread{
         this.capacidadHuerto = capacidadHuerto;
     }
 
-    public synchronized void anadirAlimentosCesta(String alimento) throws InterruptedException {
+    public synchronized void anadirAlimentosCesta(String alimento, String nombreProductor, int duracion) throws InterruptedException {
         while (vegetales.size() >= capacidadHuerto ) {
             wait();
         }
         vegetales.add(alimento);
         notifyAll();
+        System.out.println(nombreProductor + " ha plantado " + alimento + " --> " + duracion);
     }
 
     public synchronized String consumirAlimentosCesta() throws InterruptedException {

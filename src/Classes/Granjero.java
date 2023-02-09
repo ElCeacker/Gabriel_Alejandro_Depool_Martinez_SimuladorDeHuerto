@@ -41,8 +41,7 @@ public class Granjero extends Thread {
             int DURACION = (int)(Math.random()*this.duracion+1);
             int indiceAlimentos = (int) (Math.random() * huerto.length);
             sleep(DURACION);
-            System.out.println(huerto[indiceAlimentos] + " --> " + DURACION);
-            this.cesta.anadirAlimentosCesta(huerto[indiceAlimentos]);
+            this.cesta.anadirAlimentosCesta(huerto[indiceAlimentos], this.name, DURACION);
         }
     }
 
